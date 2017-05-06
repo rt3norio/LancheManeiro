@@ -4,17 +4,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pagina Inicial</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Escolha a ação desejada!</h1>
-<ul>
-<li><a href="realizaVendas.jsp">Realizar Vendas</a></li>
-<li><a href="listaVendas.jsp">Listar Vendas</a></li>
-<li><form action="${pageContext.request.contextPath}/logout" method="post">
-    <input type="submit" value="Sair" />
-</form>
-</li>
-</ul>
+<form id="pedido" action="PedidoServlet" method="post">
+		<fieldset>
+			<legend>Pedido</legend>
+			<a title="form para lanchonete"></a>
+			
+			<label for="nome">Nome do Cliente:</label>
+			<input type="text" id="nome" name="nome"/></br>
+			
+			<label for="comida">Comida:</label>
+			<input type="radio" id="comida" name="comida" value="Sanduiche"/>
+			
+			<label for="sand">Sanduiche</label>
+			<input type="radio" id="comida" name="comida" value="Pizza"/>
+			
+			<label for="pizza">Pizza</label>
+			<input type="radio" id="comida" name="comida" value="Refeicao"/>
+			
+			<label for="coxinha">Refeição</label></br>
+			
+			<label for="nome">Observação:</label>
+			<input type="text" id="obs" name="obs"/></br>
+			
+			<input type="submit" title="entrar" class="botao" value="Enviar"/>	 
+				 
+		</fieldset>	
+	</form>
 </body>
 </html>
