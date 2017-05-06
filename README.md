@@ -1,0 +1,2 @@
+# LancheManeiro
+gerenciador de lanchonete
