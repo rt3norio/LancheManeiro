@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("login", login);
 			System.out.println("ok");
-			response.sendRedirect("/LancheManeiro/paginas/pagina1.jsp");
+			response.sendRedirect("/LancheManeiro/paginas/pedido.jsp");
 		}
 		else{
 			System.out.println("login errado");

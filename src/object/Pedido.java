@@ -1,6 +1,6 @@
 package object;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Pedido {
 
@@ -19,8 +19,22 @@ public Pedido(Integer id, Date criacao, String cliente, String comida, String ob
 	this.cliente = cliente;
 	this.comida = comida;
 	this.observacao = observacao;
+	
+	if (new Date().after((new Date(this.criacao.getTime()+(1000 * 60 * 15)))))
+		this.prioritario = true;
+	
+	else
+		this.prioritario = false;
+	
+	
+	
+//	if (this.criacao.after(dataAtualPlus15Minutos))
+//		this.prioritario = true;
+//	else
+//		this.prioritario = false;
+//	
 //I M P L E M E N T A R ! ! !
-//	if(criacao - tempo atual > 10min)
+//	if(criacao - tempo atual > 15min)
 //		this.prioritario = true;
 //	else
 //		this.prioritario  =false;
@@ -38,6 +52,18 @@ public Pedido() {
 	// TODO Auto-generated constructor stub
 }
 
+
+public String toHTML() {
+	return "<a href=\"FinalizarPedidoServlet?pedido="+id+"\"><p>Pedido [criacao=" + criacao + ", cliente=" + cliente + ", comida=" + comida + ", observacao=" + observacao
+			+ ", prioritario=" + prioritario + "]</p>";
+}
+
+
+@Override
+public String toString() {
+	return "Pedido [criacao=" + criacao + ", cliente=" + cliente + ", comida=" + comida + ", observacao=" + observacao
+			+ ", prioritario=" + prioritario + "]";
+}
 
 public String getCliente() {
 	return cliente;

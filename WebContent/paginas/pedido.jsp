@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="pedido" action="PedidoServlet" method="post">
+<form id="pedido" action="../PedidoServlet" method="post">
 		<fieldset>
 			<legend>Pedido</legend>
 			<a title="form para lanchonete"></a>

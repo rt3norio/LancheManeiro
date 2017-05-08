@@ -24,7 +24,7 @@ create table users (
 create table pedidos (
   id int unsigned auto_increment not null,
   data_criacao timestamp default now(),
-  atendido timestamp default null,
+  atendido timestamp null default null,
   cliente varchar(32) not null,
   comida varchar(32) not null,
   observacao varchar(32) not null,

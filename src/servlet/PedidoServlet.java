@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.PedidosBanco;
 import object.Pedido;
 
 /**
@@ -37,12 +38,13 @@ public class PedidoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+			System.out.println("pedidoservletemexecucao");
 			Pedido p = new Pedido((String)request.getParameter("nome"),(String)request.getParameter("comida"),(String)request.getParameter("obs"));
-		
+			PedidosBanco.adicionarPedido(p);
 		//IMPLEMENTAR!
 		//banco.inserir(p);
 		
-		response.sendRedirect("/index.jsp");
+		response.sendRedirect("paginas/pedido.jsp");
 	}
 
 }
