@@ -50,22 +50,19 @@ public class PedidoServlet extends HttpServlet {
 		        //String parameterValue = request.getParameter(parameterName);
 		        String[] listaDeParametros = request.getParameterValues(parameterName);
 		        for (String parametros:listaDeParametros){
-		        	
-		        
-		        
-		        if (parameterName.equals("nome") || parameterName.equals("obs")){
-		        	continue;
-		        }
-		        else{
+		        	if (parameterName.equals("nome") || parameterName.equals("obs")){
+		        		continue;
+		        	}
+		        	else{
 		        	compilacaoDosPedidos = compilacaoDosPedidos + parameterName+" : "+parametros+"<br/>";
-		        }
+		        	}
 		        }
 		    }
 			
 			Pedido p = new Pedido((String)request.getParameter("nome"),compilacaoDosPedidos,(String)request.getParameter("obs"));
 			PedidosBanco.adicionarPedido(p);
 		
-		response.sendRedirect("paginas/pedido.jsp");
+		response.sendRedirect("paginas/criarPedido.jsp");
 	}
 
 }

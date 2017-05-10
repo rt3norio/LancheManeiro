@@ -14,7 +14,9 @@
 
 			<TR>
 				<TD>
-					<label for="nome">Nome:</label>
+					<label for="nome">Nome/Mesa:</label>
+				</TD>
+				<TD>
 					<input type="text" id="nome" name="nome"/>
 				</TD>
 			</TR>
@@ -23,7 +25,7 @@
 
 				
 			<TR>    
-				<TD>State</TD>
+				<TD>Tipo de Carne:</TD>
             	<TD><SELECT id="tipoDeCarne" NAME=tipoDeCarne>
 <%  
 					String[] tipoDeCarne = {"Costela", "Duas Carnes", "Uma Carne", "Sem Carne", "..."};
@@ -36,25 +38,35 @@
 			</TR>
 
 
-
-
+			<TR>
+			<TD>
+			Acompanhamentos:
+			</TD>
+			</TR>
+			
 <%
-	String[] acompanhamentos = {"Cebola","CebolaCaramelada","MolhoShoyu","BananaFrita","SemCriatividade"};
+	String[] acompanhamentos = {"Cebola","Cebola Caramelada","MolhoShoyu","BananaFrita","SemCriatividade"};
     	for(String acompAtual:acompanhamentos){
 %>
-			<TR>    
+			<TR>
+				<td>
+				</td> 
 				<TD><INPUT TYPE="checkbox" name="acompanhamentos" value=<%=acompAtual%>><%=acompAtual%></TD>
 			</TR>
 <%  }   %>
 			<TR>
 				<TD>
 					<label for="obs">Observação:</label>
+				</TD>
+				<TD>
 					<input type="text" id="obs" name="obs"/>
 				</TD>
 			</TR>
 			<TR>
 				<TD>
-					<label for="obs">Observação:</label>
+					<label for="obs">Fazer Pedido!</label>
+				</TD>
+				<TD>
 					<input type="submit" title="enviar" class="botao" value="Enviar"/>
 				</TD>
 			</TR>
@@ -62,5 +74,6 @@
 
 		</TABLE>
 	</form>
+	<a href="../ListaPedidos"><h2>Listar Pedidos</h2></a>
 </body>
 </html>
