@@ -81,6 +81,6 @@
 
 		</TABLE>
 	</form>
-	<a href="index2.jsp"><h2>Area Administrativa</h2></a>
+	<h2><a href="index2.jsp">Area Administrativa</a></h2>
 </body>
 </html>
