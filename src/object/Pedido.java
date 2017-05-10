@@ -58,6 +58,17 @@ public String toHTML() {
 			+ ", prioritario=" + prioritario + "]</p>";
 }
 
+@SuppressWarnings("deprecation")
+public String toTable() {
+return "<tr>"+
+"	<td align=\"center\">"+this.id+"</td>"+
+"	<td>"+this.criacao.getHours()+":"+this.criacao.getMinutes()+"</td>"+
+"	<td>"+this.cliente+"</td>"+
+"	<td>"+this.comida+"</td>"+
+"	<td>"+this.observacao+"</td>"+
+"	<td>"+this.prioritario+"</td>"+
+"</tr>";
+}
 
 @Override
 public String toString() {

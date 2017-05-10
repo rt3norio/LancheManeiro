@@ -3,29 +3,52 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.sql.ResultSet;
-
 import object.Pedido;
 
 public class PedidosBanco {
 	
 	
+	public static Boolean finalizarPedido(Integer codigo){
+		try{
+			ConexaoBanco cb = new ConexaoBanco();
+			cb.iniciaBd();
+			Connection conexao = cb.getConexao();
+			String query = "update pedidos set atendido = now() where id = ?";
+			
+			PreparedStatement pStatement = conexao.prepareStatement(query);
+			pStatement.setInt(1, codigo);
+			pStatement.executeUpdate();
+			System.out.println(pStatement.toString());
+			conexao.close();
+			cb.fechaBd();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
 	
+	}
 	
-	public static Boolean adicionarPedido(Pedido p){
+ 	public static Boolean adicionarPedido(Pedido p){
 
 		
 		try{
-			ConexaoBanco.iniciaBd();
-			Connection conexao = ConexaoBanco.getConexao();
+			//ConexaoBanco.iniciaBd();
+			ConexaoBanco cb = new ConexaoBanco();
+			cb.iniciaBd();
+			Connection conexao = cb.getConexao();
 			String query = " insert into pedidos (cliente, comida, observacao)"
 							+ " values (?, ?, ?)";
 			PreparedStatement pStatement = conexao.prepareStatement(query);
 			pStatement.setString(1, p.getCliente());
 			pStatement.setString(2, p.getComida());
 			pStatement.setString(3, p.getObservacao());
-			
+			pStatement.execute();
+			System.out.println(pStatement.toString());
+			conexao.close();
+			cb.fechaBd();
 			
 			
 		}
@@ -40,9 +63,12 @@ public class PedidosBanco {
 
 	public static ArrayList<Pedido> listarPedidos() {
 		ArrayList<Pedido> pedidos = new ArrayList<>();
+		ConexaoBanco cb = new ConexaoBanco();
+		cb.iniciaBd();
+		Connection conexao = cb.getConexao();
 		try{
-			ConexaoBanco.iniciaBd();
-			Connection conexao = ConexaoBanco.getConexao();
+			//ConexaoBanco.iniciaBd();
+			
 			String query = "select * from pedidos where atendido is null";
 			PreparedStatement pStatement = conexao.prepareStatement(query);
 			ResultSet rSet = pStatement.executeQuery();
@@ -57,13 +83,19 @@ public class PedidosBanco {
 
 				pedidos.add(p);
 				p = null;
+				
 			}
-			
+			conexao.close();
+			cb.fechaBd();
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		finally {
+		
+		}
+		
 		return pedidos;
 	}
 }

@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,10 +41,29 @@ public class PedidoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			System.out.println("pedidoservletemexecucao");
-			Pedido p = new Pedido((String)request.getParameter("nome"),(String)request.getParameter("comida"),(String)request.getParameter("obs"));
+			String compilacaoDosPedidos = "";
+			//
+			Enumeration<String> parameters = request.getParameterNames();
+			System.out.println(parameters);
+		    while(parameters.hasMoreElements()){
+		        String parameterName = (String)parameters.nextElement();
+		        //String parameterValue = request.getParameter(parameterName);
+		        String[] listaDeParametros = request.getParameterValues(parameterName);
+		        for (String parametros:listaDeParametros){
+		        	
+		        
+		        
+		        if (parameterName.equals("nome") || parameterName.equals("obs")){
+		        	continue;
+		        }
+		        else{
+		        	compilacaoDosPedidos = compilacaoDosPedidos + parameterName+" : "+parametros+"<br/>";
+		        }
+		        }
+		    }
+			
+			Pedido p = new Pedido((String)request.getParameter("nome"),compilacaoDosPedidos,(String)request.getParameter("obs"));
 			PedidosBanco.adicionarPedido(p);
-		//IMPLEMENTAR!
-		//banco.inserir(p);
 		
 		response.sendRedirect("paginas/pedido.jsp");
 	}

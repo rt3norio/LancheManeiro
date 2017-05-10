@@ -31,3 +31,11 @@ create table pedidos (
   prioritario boolean default false,
   primary key (id)
 );
+
+
+create table materia(
+id int unsigned auto_increment not null,
+choraria int unsigned not null,
+nome varchar(32) not null,
+primary key(id)
+);

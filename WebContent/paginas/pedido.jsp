@@ -29,9 +29,10 @@
 			<label for="nome">Observação:</label>
 			<input type="text" id="obs" name="obs"/></br>
 			
-			<input type="submit" title="entrar" class="botao" value="Enviar"/>	 
+			<input type="submit" title="enviar" class="botao" value="Enviar"/>	 
 				 
 		</fieldset>	
 	</form>
+	<a href="../ListaPedidos"><h2>Listar Pedidos</h2></a>
 </body>
 </html>

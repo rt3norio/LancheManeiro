@@ -18,7 +18,7 @@ import object.Pedido;
 /**
  * Servlet implementation class ListaPedidosServlet
  */
-@WebServlet("/ListaPedidosServlet")
+@WebServlet("/ListaPedidos")
 public class ListaPedidosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,12 +63,41 @@ public class ListaPedidosServlet extends HttpServlet {
     			"<head><title>" + title + "</title></head>\n"+
     			"<body bgcolor=\"#f0f0f0\">\n" +
     			"<h1 align=\"center\">" + title + "</h1>\n" +
-    			"<p>Current Time is: " + CT + "</p>\n");
+    			"<p align=\"center\">HORA AGORA: " + CT + "</p>\n");
+    	  	
+    	String finalizaForm = ("<form align=\"center\" method=\"post\" action=\"/LancheManeiro/FinalizaPedido\">"+
+    	  "Finalizar Pedido:<br>"+
+    	  "<input autofocus=\"autofocus\" type=\"text\" name=\"pedido\" id=\"pedido\" value=\"\">"+
+    	  "<br>"+
+    	  "<input type=\"submit\" value=\"Finalizar!\">"+
+    	"</form>");
+    	out.println(finalizaForm);
+    	
+    	String tabela = ("<table style=\"margin-left: auto; margin-right: auto;\" border=\"1\">"+
+	"<tbody>"+
+		"<tr>"+
+		"	<td>Numero do Pedido</td>"+
+		"	<td>Hora</td>"+
+		"	<td>&nbsp;&nbsp;Nome&nbsp;&nbsp;</td>"+
+		"	<td>&nbsp;&nbsp;&nbsp;Pedido&nbsp;&nbsp;&nbsp;</td>"+
+		"	<td>&nbsp;&nbsp;Observacao&nbsp;&nbsp;</td>"+
+		"	<td>Prioridade</td>"+
+		"</tr>");
+		//inserir as paradas aqui!
+
+    	
     	
     	ArrayList<Pedido> pedidos = PedidosBanco.listarPedidos();
     	for(Pedido p:pedidos){
-    		out.println(p.toHTML());
+    		
+    		tabela = tabela + p.toTable();
+    		
     	}
+    	
+    	tabela = tabela +(	"</tbody>"+
+    						"</table>");
+
+    	out.println(tabela);
     	
     	
     	

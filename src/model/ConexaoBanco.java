@@ -6,9 +6,9 @@ import java.sql.DriverManager;
 public class ConexaoBanco {
 
 	//objeto de conexão
-	static private Connection con;
+	private Connection con;
 
-	public static void iniciaBd()
+	public void iniciaBd()
 	{	try
 	{	
 		//jdbc:mysql//PortaDeConexão/NomeDoEsquema
@@ -30,7 +30,7 @@ public class ConexaoBanco {
 	}
 
 	//fecha a conexão
-	public static void fechaBd(){	
+	public void fechaBd(){	
 		try{
 			con.close();
 		}
@@ -40,7 +40,7 @@ public class ConexaoBanco {
 	}	
 
 	//retorna a conexão	
-	public static Connection getConexao()
+	public Connection getConexao()
 	{	
 		return con;		
 	}
