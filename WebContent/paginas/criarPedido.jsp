@@ -7,6 +7,10 @@
 		<title>Insert title here</title>
 	</head>
 <body>
+<%
+// TODO criar estruturas de buscas dos dados disponiveis para o formulario
+
+%>
 	<form id="pedido" action="../PedidoServlet" method="post">
 		<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
 

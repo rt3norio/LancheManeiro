@@ -98,5 +98,45 @@ public class PedidosBanco {
 		
 		return pedidos;
 	}
+	
+	
+
+	public static ArrayList<Pedido> historicoPedidos() {
+		ArrayList<Pedido> pedidos = new ArrayList<>();
+		ConexaoBanco cb = new ConexaoBanco();
+		cb.iniciaBd();
+		Connection conexao = cb.getConexao();
+		try{
+			//ConexaoBanco.iniciaBd();
+			
+			String query = "select * from pedidos where atendido is not null";
+			PreparedStatement pStatement = conexao.prepareStatement(query);
+			ResultSet rSet = pStatement.executeQuery();
+			while(rSet.next()){
+				//Pedido p = new Pedido();
+				Pedido p = new Pedido(rSet.getInt("id"),rSet.getTimestamp("data_criacao"),rSet.getString("cliente"),rSet.getString("comida"),rSet.getString("observacao"));
+//				p.setId(rSet.getInt("id"));
+//				p.setCliente(rSet.getString("cliente"));
+//				p.setComida(rSet.getString("comida"));
+//				p.setObservacao(rSet.getString("observacao"));
+//				p.setCriacao(rSet.getDate("data_criacao"));
+
+				pedidos.add(p);
+				p = null;
+				
+			}
+			conexao.close();
+			cb.fechaBd();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+		
+		}
+		
+		return pedidos;
+	}
 }
 

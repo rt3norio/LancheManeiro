@@ -62,7 +62,7 @@ public class PedidoServlet extends HttpServlet {
 			Pedido p = new Pedido((String)request.getParameter("nome"),compilacaoDosPedidos,(String)request.getParameter("obs"));
 			PedidosBanco.adicionarPedido(p);
 		
-		response.sendRedirect("paginas/criarPedido.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 }

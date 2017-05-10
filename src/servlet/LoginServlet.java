@@ -54,13 +54,13 @@ public class LoginServlet extends HttpServlet {
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("login", login);
 			System.out.println("ok");
-			response.sendRedirect("/LancheManeiro/paginas/pedido.jsp");
+			response.sendRedirect("/LancheManeiro/paginas/menu.jsp");
 		}
 		else{
 			System.out.println("login errado");
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("senha", "incorreta");
-			response.sendRedirect("/LancheManeiro/index.jsp");
+			response.sendRedirect("/LancheManeiro/index2.jsp");
 		}
 		
 		
