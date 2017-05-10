@@ -1,2 +1,2 @@
 # LancheManeiro
-gerenciador de lanchonete
+Simples comandas eletrônicas para agilizar um pequeno comercio!
