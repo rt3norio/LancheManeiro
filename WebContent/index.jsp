@@ -7,14 +7,11 @@
 		<title>Insert title here</title>
 	</head>
 <body>
-
 <%
-
-//TODO criar estruturas de buscas dos dados disponiveis para o formulario
-
+// TODO criar estruturas de buscas dos dados disponiveis para o formulario
 
 %>
-	<form id="pedido" action="../PedidoServlet" method="post">
+	<form id="pedido" action="PedidoServlet" method="post">
 		<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
 
 
@@ -27,15 +24,12 @@
 					<input type="text" id="nome" name="nome"/>
 				</TD>
 			</TR>
-
-
-
 				
 			<TR>    
 				<TD>Tipo de Carne:</TD>
             	<TD><SELECT id="tipoDeCarne" NAME=tipoDeCarne>
 <%  
-					String[] tipoDeCarne = {"Costela", "Duas Carnes", "Uma Carne", "Sem Carne", "..."};
+					String[] tipoDeCarne = {"CarneMacica", "CarneRecheada", "2xCostelaMacica", "CordeiroComHortelã", "CordeiroSemHortelã"};
     				for(String carneAtual:tipoDeCarne) {    
 %>
                     <OPTION><%=carneAtual%></OPTION>
@@ -44,21 +38,69 @@
 				</TD>
 			</TR>
 
+			<TR>    
+				<TD>Tipo de Pão:</TD>
+            	<TD><SELECT id="tipoDePao" NAME=tipoDePao>
+<%  
+					String[] tipoDePao = {"PãoIntegral", "PãoCareca", "PãoComGergelim", "Brioche"};
+    				for(String paoAtual:tipoDePao) {    
+%>
+                    <OPTION><%=paoAtual%></OPTION>
+<%					}%>
+					</SELECT>
+				</TD>
+			</TR>
+
+			<TR>    
+				<TD>Recheio 1:</TD>
+            	<TD><SELECT id="recheio1" NAME=recheio1>
+<%  
+					String[] recheio = {"Calabresa", "Bacon", "Peru", "Presunto","Parmesao","Catupiry","Provolone","Cheddar","Mussarela"};
+    				for(String rechAtual:recheio) {    
+%>
+                    <OPTION><%=rechAtual%></OPTION>
+<%					}%>
+					</SELECT>
+				</TD>
+			</TR>
+			<TR>    
+				<TD>Recheio 2:</TD>
+            	<TD><SELECT id="recheio2" NAME=recheio2>
+<%
+    				for(String rechAtual:recheio) {    
+%>
+                    <OPTION><%=rechAtual%></OPTION>
+<%					}%>
+					</SELECT>
+				</TD>
+			</TR>
+			<TR>    
+				<TD>Recheio 3:</TD>
+            	<TD><SELECT id="recheio3" NAME=recheio3>
+<%  
+    				for(String rechAtual:recheio) {    
+%>
+                    <OPTION><%=rechAtual%></OPTION>
+<%					}%>
+					</SELECT>
+				</TD>
+			</TR>
+
 
 			<TR>
 			<TD>
-			Acompanhamentos:
+			Complementos:
 			</TD>
 			</TR>
 			
 <%
-	String[] acompanhamentos = {"Cebola","Cebola Caramelada","MolhoShoyu","BananaFrita","SemCriatividade"};
-    	for(String acompAtual:acompanhamentos){
+	String[] complementos = {"Alface","Tomate","CebolaCrua","CebolaRefogada","CebolaRoxaCrua","CebolaRoxaRefogada","Cheddar","Bacon"};
+    	for(String compAtual:complementos){
 %>
 			<TR>
 				<td>
 				</td> 
-				<TD><INPUT TYPE="checkbox" name="acompanhamentos" value=<%=acompAtual%>><%=acompAtual%></TD>
+				<TD><INPUT TYPE="checkbox" name="complementos" value=<%=compAtual%>><%=compAtual%></TD>
 			</TR>
 <%  }   %>
 			<TR>
@@ -84,3 +126,4 @@
 	<h2><a href="index2.jsp">Area Administrativa</a></h2>
 </body>
 </html>
+	
