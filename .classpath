@@ -14,5 +14,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/home/rodrigo/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-sources.jar"/>
+	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
