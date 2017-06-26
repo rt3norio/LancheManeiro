@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.PedidosBanco;
+import model.SendMail;
 import object.Pedido;
 
 /**
@@ -54,13 +55,14 @@ public class PedidoServlet extends HttpServlet {
 		        		continue;
 		        	}
 		        	else{
-		        	compilacaoDosPedidos = compilacaoDosPedidos + parameterName+" : "+parametros+"<br/>";
+		        	compilacaoDosPedidos = compilacaoDosPedidos + parameterName+" : "+parametros;
 		        	}
 		        }
 		    }
 			
 			Pedido p = new Pedido((String)request.getParameter("nome"),compilacaoDosPedidos,(String)request.getParameter("obs"));
 			PedidosBanco.adicionarPedido(p);
+			SendMail.enviar(p);
 		
 		response.sendRedirect("index.jsp");
 	}

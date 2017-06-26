@@ -2,6 +2,21 @@
     <wb-module deploy-name="LancheManeiro">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="mysql-connector-java-5.1.42-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LancheManeiro/jar/mysql-connector-java-5.1.42-bin.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="itext5-itextpdf-5.5.11.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LancheManeiro/jar/itext5-itextpdf-5.5.11.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="itext5-itextpdf-5.5.11-javadoc.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LancheManeiro/jar/itext5-itextpdf-5.5.11-javadoc.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="itext5-itextpdf-5.5.11-sources.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LancheManeiro/jar/itext5-itextpdf-5.5.11-sources.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.mail.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/LancheManeiro/jar/javax.mail.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="LancheManeiro"/>
         <property name="java-output-path" value="/LancheManeiro/build/classes"/>
     </wb-module>

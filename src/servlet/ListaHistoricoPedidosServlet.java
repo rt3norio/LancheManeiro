@@ -70,6 +70,11 @@ public class ListaHistoricoPedidosServlet extends HttpServlet {
     	  "<input type=\"submit\" value=\"Voltar\">"+
     	"</form>");
     	out.println(finalizaForm);
+    	String botaoPdf = ("<form align=\"center\" method=\"get\" action=\"pdf\">"+
+    	    	  "Exibir PDF:<br>"+
+    	    	  "<input type=\"submit\" value=\"Exibir PDF\">"+
+    	    	"</form>");
+    	    	out.println(botaoPdf);
     	
     	String tabela = ("<table style=\"margin-left: auto; margin-right: auto;\" border=\"1\">"+
 	"<tbody>"+
@@ -83,7 +88,17 @@ public class ListaHistoricoPedidosServlet extends HttpServlet {
 		"</tr>");
 		//inserir as paradas aqui!
 
+//    	PdfUtil pdf = new PdfUtil();
+//    	pdf.criar();
     	
+
+//    	PdfTest1 t = new PdfTest1();
+//    	try {
+//			t.main();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     	
     	ArrayList<Pedido> pedidos = PedidosBanco.historicoPedidos();
     	for(Pedido p:pedidos){

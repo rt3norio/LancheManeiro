@@ -8,10 +8,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-javadoc.jar"/>
-	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-sources.jar"/>
 	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11.jar"/>
 	<classpathentry kind="lib" path="jar/mysql-connector-java-5.1.42-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="jar/itext5-itextpdf-5.5.11-sources.jar"/>
+	<classpathentry kind="lib" path="jar/javax.mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

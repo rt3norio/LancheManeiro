@@ -72,7 +72,7 @@ return "<tr>"+
 
 @Override
 public String toString() {
-	return "Pedido [criacao=" + criacao + ", cliente=" + cliente + ", comida=" + comida + ", observacao=" + observacao
+	return "Pedido - Criacao= " + criacao + ", Cliente= " + cliente + ", comida=" + comida + ", observacao=" + observacao
 			+ ", prioritario=" + prioritario + "]";
 }
 
